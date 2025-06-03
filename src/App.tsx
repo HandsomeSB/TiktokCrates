@@ -77,7 +77,7 @@ function App() {
         <Header />
         
         <main className="flex-1 container mx-auto px-4 py-6 max-w-5xl">
-          <div className="grid md:grid-cols-[1fr_2fr] gap-8">
+          <div className="grid md:grid-cols-[4fr_6fr] gap-8">
             <div className="flex flex-col">
               <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 mb-6">
                 <h2 className="text-xl font-bold mb-4 text-center">Open TikTok Crate</h2>

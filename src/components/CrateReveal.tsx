@@ -56,7 +56,7 @@ const CrateReveal: React.FC<CrateRevealProps> = ({
   }, [isRevealed, currentVideo, currentRarity]);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full max-w-2xl mx-auto px-4">
+    <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto px-4">
       {/* Rarity Display */}
       <div className={`
         text-center mb-8 p-4 rounded-lg transition-all duration-300
@@ -94,7 +94,7 @@ const CrateReveal: React.FC<CrateRevealProps> = ({
       
       {/* Video Display */}
       {showVideo && currentVideo && (
-        <div className="w-full max-w-[600px] h-[80vh] max-h-[800px] mx-auto my-4 animate-fadeIn bg-gray-800 rounded-lg overflow-hidden">
+        <div className="w-full h-[80vh] max-h-[800px] mx-auto my-4 animate-fadeIn bg-gray-800 rounded-lg overflow-hidden">
           <div className="w-full h-full overflow-y-auto scrollbar-hide">
             <div className="w-full h-full min-h-full">
               <iframe
