@@ -10,8 +10,9 @@ interface VideoCardProps {
 }
 
 const formatNumber = (num: number): string => {
-  if (num < 0.001) return '< 0.001';
-  return num.toFixed(6);
+  if (num < 1000) return num.toFixed(0);
+  if (num < 1000000) return (num / 1000).toFixed(1) + 'k';
+  return (num / 1000000).toFixed(1) + 'm';
 };
 
 const VideoCard: React.FC<VideoCardProps> = ({ video, rarity, isNewlyOpened = false }) => {
