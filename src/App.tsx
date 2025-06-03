@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { InventoryProvider } from './context/InventoryContext';
 import Header from './components/Header';
 import CrateReveal from './components/CrateReveal';
@@ -6,7 +6,6 @@ import InventoryList from './components/InventoryList';
 import StatsDisplay from './components/StatsDisplay';
 import { CrateState } from './types';
 import { openCrate } from './services/api';
-import { Package, Loader2 } from 'lucide-react';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -87,40 +86,14 @@ function App() {
                 <CrateReveal 
                   crateState={crateState}
                   onRevealComplete={handleRevealComplete}
+                  onReset={handleReset}
+                  onOpenCrate={handleOpenCrate}
+                  isLoading={isLoading}
                 />
                 
-                {/* Action buttons */}
-                <div className="mt-6 flex justify-center">
-                  {crateState.isRevealed ? (
-                    <button
-                      onClick={handleReset}
-                      className="px-6 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors"
-                    >
-                      Open Another Crate
-                    </button>
-                  ) : (
-                    <button
-                      onClick={handleOpenCrate}
-                      disabled={isLoading || crateState.isOpening}
-                      className={`px-6 py-2 flex items-center gap-2 rounded-lg transition-colors ${
-                        isLoading || crateState.isOpening
-                          ? 'bg-gray-700 cursor-not-allowed'
-                          : 'bg-amber-600 hover:bg-amber-500'
-                      }`}
-                    >
-                      {isLoading ? (
-                        <Loader2 className="animate-spin" size={18} />
-                      ) : (
-                        <Package size={18} />
-                      )}
-                      {crateState.isOpening ? 'Opening...' : 'Open Crate'}
-                    </button>
-                  )}
-                </div>
+                {/* Stats display */}
+                <StatsDisplay />
               </div>
-              
-              {/* Stats display */}
-              <StatsDisplay />
             </div>
             
             {/* Inventory section */}
