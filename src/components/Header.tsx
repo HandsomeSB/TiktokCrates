@@ -9,7 +9,7 @@ const Header: React.FC = () => {
         <h1 className="text-xl font-bold text-white">TikTok Crates</h1>
       </div>
       <div className="text-gray-400 text-sm hidden md:block">
-        CSGO-style TikTok loot crates
+        Fry Your Brain
       </div>
     </header>
   );

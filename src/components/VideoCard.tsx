@@ -33,11 +33,11 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, rarity, isNewlyOpened = fa
     >
       <div className={`${colorClasses} px-3 py-2 flex justify-between items-center`}>
         <span className="font-bold text-sm">{rarityName}</span>
-        <span className="text-xs opacity-80">Score: {(video.score ?? 100).toFixed(2)}</span>
+        <span className="text-xs opacity-80">Score: {video.score ? Math.round(video.score * 100) : 100}</span>
       </div>
       
       <div className="p-4">
-        <div className="mb-3 flex justify-between">
+        <div className="mb-3">
           <a 
             href={video.webVideoUrl} 
             target="_blank" 
@@ -47,7 +47,6 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, rarity, isNewlyOpened = fa
             <PlayCircle size={16} />
             <span>Watch on TikTok</span>
           </a>
-          <span className="text-gray-400 text-xs">ID: {video.id}</span>
         </div>
         
         <div className="grid grid-cols-2 gap-2 mt-3">

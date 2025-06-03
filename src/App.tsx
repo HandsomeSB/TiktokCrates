@@ -104,7 +104,7 @@ function App() {
         </main>
         
         <footer className="py-4 text-center text-gray-500 text-sm border-t border-gray-800">
-          <p>TikTok Crates © {new Date().getFullYear()} - CSGO-style loot box experience</p>
+          <p>TikTok Crates © {new Date().getFullYear()} - Fry Your Brain</p>
         </footer>
       </div>
     </InventoryProvider>
