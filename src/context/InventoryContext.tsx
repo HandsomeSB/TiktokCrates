@@ -10,21 +10,14 @@ interface InventoryContextType {
 const InventoryContext = createContext<InventoryContextType | undefined>(undefined);
 
 export const InventoryProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [inventory, setInventory] = useState<InventoryItem[]>([]);
+  // Initialize state directly from localStorage
+  const [inventory, setInventory] = useState<InventoryItem[]>(() => {
+    if (typeof window === 'undefined') return []; // For SSR
+    const saved = localStorage.getItem('tiktokCrateInventory');
+    return saved ? JSON.parse(saved) : [];
+  });
 
-  // Load inventory from localStorage on mount
-  useEffect(() => {
-    const savedInventory = localStorage.getItem('tiktokCrateInventory');
-    if (savedInventory) {
-      try {
-        setInventory(JSON.parse(savedInventory));
-      } catch (error) {
-        console.error('Error parsing inventory from localStorage:', error);
-      }
-    }
-  }, []);
-
-  // Save inventory to localStorage when it changes
+  // Save to localStorage when inventory changes
   useEffect(() => {
     localStorage.setItem('tiktokCrateInventory', JSON.stringify(inventory));
   }, [inventory]);

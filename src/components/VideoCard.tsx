@@ -33,7 +33,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, rarity, isNewlyOpened = fa
     >
       <div className={`${colorClasses} px-3 py-2 flex justify-between items-center`}>
         <span className="font-bold text-sm">{rarityName}</span>
-        <span className="text-xs opacity-80">Score: {video.score.toFixed(2)}</span>
+        <span className="text-xs opacity-80">Score: {(video.score ?? 100).toFixed(2)}</span>
       </div>
       
       <div className="p-4">

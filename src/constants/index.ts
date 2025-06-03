@@ -25,11 +25,11 @@ export const RARITY_NAMES: Record<Rarity, string> = {
 };
 
 export const RARITY_PROBABILITY: Record<Rarity, number> = {
-  common: 0.6,
+  common: 0.45,
   uncommon: 0.25,
-  rare: 0.1,
-  epic: 0.04,
-  legendary: 0.01,
+  rare: 0.15,
+  epic: 0.10,
+  legendary: 0.05,
 };
 
 export const DATA_URLS: Record<Rarity, string> = {

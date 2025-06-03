@@ -33,9 +33,8 @@ const CrateReveal: React.FC<CrateRevealProps> = ({ crateState, onRevealComplete 
       }, 100); // Speed of scrolling
       
       return () => clearInterval(interval);
-    } else {
+    } else if(!isOpening) {
       setShowVideo(false);
-      setScrollingRarity('common');
     }
   }, [isOpening, currentRarity, onRevealComplete]);
   
