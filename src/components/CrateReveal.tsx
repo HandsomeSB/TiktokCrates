@@ -42,8 +42,9 @@ const CrateReveal: React.FC<CrateRevealProps> = ({ crateState, onRevealComplete 
   useEffect(() => {
     if (isRevealed && currentVideo && currentRarity) {
       addToInventory(currentVideo, currentRarity);
+      console.log('Added to inventory:', currentVideo, currentRarity);
     }
-  }, [isRevealed, currentVideo, currentRarity, addToInventory]);
+  }, [isRevealed, currentVideo, currentRarity]);
 
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-md mx-auto">

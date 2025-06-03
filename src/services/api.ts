@@ -23,7 +23,7 @@ export const fetchVideosByRarity = async (rarity: Rarity): Promise<TikTokVideo[]
     }
     
     const data = await response.json();
-    videoCache[rarity] = data[0]; // The data is nested in an array
+    videoCache[rarity] = data; // The data is nested in an array
     return videoCache[rarity];
   } catch (error) {
     console.error(`Error fetching ${rarity} videos:`, error);
@@ -60,6 +60,7 @@ export const determineRarity = (): Rarity => {
 // Open a crate and get a random video
 export const openCrate = async (): Promise<{ video: TikTokVideo | null; rarity: Rarity }> => {
   const rarity = determineRarity();
+  console.log('Rarity:', rarity);
   const video = await getRandomVideo(rarity);
   return { video, rarity };
 };

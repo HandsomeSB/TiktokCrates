@@ -38,6 +38,7 @@ function App() {
         currentVideo: video,
         currentRarity: rarity,
       }));
+
     } catch (error) {
       console.error('Error opening crate:', error);
       // Reset on error
@@ -56,6 +57,7 @@ function App() {
   const handleRevealComplete = () => {
     setCrateState(prev => ({
       ...prev,
+      isOpening: false,
       isRevealed: true,
     }));
   };
